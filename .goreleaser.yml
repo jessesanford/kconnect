@@ -10,7 +10,7 @@ builds:
       env:
         - CGO_ENABLED=0
       ldflags:
-        - -s -w -X github.com/fidelity/kconnect/internal/version.buildDate={{.Date}} -X github.com/fidelity/kconnect/internal/version.commitHash={{.Commit}} -X github.com/fidelity/kconnect/internal/version.version={{.Version}}
+        - -s -w -X github.com/jessesanford/kconnect/internal/version.buildDate={{.Date}} -X github.com/jessesanford/kconnect/internal/version.commitHash={{.Commit}} -X github.com/jessesanford/kconnect/internal/version.version={{.Version}}
       goos:
         - windows
         - darwin
@@ -54,9 +54,9 @@ changelog:
 brews:
   -
     tap:
-      owner: fidelity
+      owner: jessesanford
       name: homebrew-tap
-    homepage: "https://github.com/fidelity/kconnect"
+    homepage: "https://github.com/jessesanford/kconnect"
     description: "Kubernetes Connection Manager CLI"
     dependencies:
       - aws-iam-authenticator
@@ -68,9 +68,9 @@ dockers:
   -
     dockerfile: Dockerfile
     image_templates:
-    - "docker.io/kconnectcli/kconnect:latest"
-    - "docker.io/kconnectcli/kconnect:{{ .Tag }}"
-    - "docker.io/kconnectcli/kconnect:v{{ .Major }}.{{ .Minor }}"
+    - "docker.io/jessesanford/kconnect:latest"
+    - "docker.io/jessesanford/kconnect:{{ .Tag }}"
+    - "docker.io/jessesanford/kconnect:v{{ .Major }}.{{ .Minor }}"
     build_flag_templates:
     - "--label=org.opencontainers.image.created={{.Date}}"
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
@@ -79,9 +79,9 @@ dockers:
   -
     dockerfile: Dockerfile.alpine
     image_templates:
-    - "docker.io/kconnectcli/kconnect:latest-alpine"
-    - "docker.io/kconnectcli/kconnect:{{ .Tag }}-alpine"
-    - "docker.io/kconnectcli/kconnect:v{{ .Major }}.{{ .Minor }}-alpine"
+    - "docker.io/jessesanford/kconnect:latest-alpine"
+    - "docker.io/jessesanford/kconnect:{{ .Tag }}-alpine"
+    - "docker.io/jessesanford/kconnect:v{{ .Major }}.{{ .Minor }}-alpine"
     build_flag_templates:
     - "--label=org.opencontainers.image.created={{.Date}}"
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
@@ -90,9 +90,9 @@ dockers:
   -
     dockerfile: Dockerfile.deps
     image_templates:
-    - "docker.io/kconnectcli/kconnect:latest-alpine-with-deps"
-    - "docker.io/kconnectcli/kconnect:{{ .Tag }}-alpine-with-deps"
-    - "docker.io/kconnectcli/kconnect:v{{ .Major }}.{{ .Minor }}-alpine-with-deps"
+    - "docker.io/jessesanford/kconnect:latest-alpine-with-deps"
+    - "docker.io/jessesanford/kconnect:{{ .Tag }}-alpine-with-deps"
+    - "docker.io/jessesanford/kconnect:v{{ .Major }}.{{ .Minor }}-alpine-with-deps"
     build_flag_templates:
     - "--label=org.opencontainers.image.created={{.Date}}"
     - "--label=org.opencontainers.image.title={{.ProjectName}}"
@@ -106,7 +106,7 @@ nfpms:
       darwin: macos
     file_name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     vendor: kconnect authors
-    homepage: https://github.com/fidelity/kconnect
+    homepage: https://github.com/jessesanford/kconnect
     description: "The Kubernetes Connection Manager CLI"
     license: Apache 2.0
     formats:
